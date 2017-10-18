@@ -2,7 +2,7 @@
 Nishant Panigrahi  
 October 17, 2017  
 
-##Introduction
+##  Introduction
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a [Fitbit](https://www.fitbit.com/in/home), [Nike Fuelband](https://www.nike.com/us/en_us/c/nikeplus-fuelband), or [Jawbone Up](https://jawbone.com/up). These type of devices are part of the "quantified self" movement - a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
 
 This assignment makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
@@ -19,7 +19,7 @@ The variables included in this dataset are:
 
 The dataset is stored in a comma-separated-value (CSV) file and there are a total of 17,568 observations in this dataset.
 
-##Review Criteria
+##  Review Criteria
 **Repo**
 
 1. Valid GitHub URL
@@ -39,7 +39,7 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 8. Panel plot comparing the average number of steps taken per 5-minute interval across weekdays and weekends
 9. All of the R code needed to reproduce the results (numbers, plots, etc.) in the report
 
-##Assignment
+## Assignment
 This assignment will be described in multiple parts. We will need to write a report that answers the questions detailed below. Ultimately, we will need to complete the entire assignment in a **single R markdown** document that can be processed by **knitr** and be transformed into an HTML file.
 
 Throughout our report we have to make sure we always include the code that we used to generate the output we present. When writing code chunks in the R markdown document, we need to always use ```echo = TRUE``` so that someone else will be able to read the code. **This assignment will be evaluated via peer assessment so it is essential that our peer evaluators be able to review the code for our analysis.**
@@ -50,7 +50,7 @@ Let us first Fork/clone the GitHub repository created for this assignment. We wi
 
 NOTE: The GitHub repository also contains the dataset for the assignment so we do not have to download the data separately.
 
-###Loading and preprocessing the data
+### Loading and preprocessing the data
 Below is the code that is needed to:
 
 1. Load the data (i.e. ```read.csv()```)
@@ -64,7 +64,7 @@ Activity_Montoring_Data<-read.csv("activity.csv")
 Act_Mon_dat_Step_clean<-Activity_Montoring_Data[!is.na(Activity_Montoring_Data$steps),]
 ```
 
-###What is mean total number of steps taken per day?
+### What is mean total number of steps taken per day?
 For this part of the assignment, we can ignore the missing values in the dataset.
 
 Below is the code needed and output to:
@@ -91,7 +91,7 @@ Median_Tot_Steps_perday<-median(Total_Steps_daywise, na.rm = TRUE)
 ```
     The mean and median of the total number of steps taken per day are 10766.19 and 10765 respectively.
 
-###What is the average daily activity pattern?
+### What is the average daily activity pattern?
 Below is the code needed and output to:
 
 1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
@@ -107,7 +107,7 @@ plot(names(Avg_Steps_intervalwise),Avg_Steps_intervalwise,type = 'l',main = "Ave
 
     The 5-minute interval that, on average across all the days in the dataset, contains the maximum number of steps is: 835
 
-###Imputing missing values
+### Imputing missing values
 Note that there are a number of days/intervals where there are missing values (coded as `NA`). The presence of missing days may introduce bias into some calculations or summaries of the data.
 
 Below is the code needed and output to:
@@ -147,10 +147,12 @@ Mean_Tot_Steps_perday_NAs_filled<-mean(Total_Steps_daywise_NAs_filled, na.rm = T
 Median_Tot_Steps_perday_NAs_filled<-median(Total_Steps_daywise_NAs_filled, na.rm = TRUE)
 ```
     The mean and median of the total number of steps taken per day are 10766.19 and 10766.19 respectively.
+    
     The mean of the total number of steps taken per day remains the same while the median of the same differs.
+    
     The impact of imputing missing data on the estimates of the total daily number of steps is that the mean value for the observations remains the same while the median value of the same increases and becomes equal to the mean.
 
-###Are there differences in activity patterns between weekdays and weekends?
+### Are there differences in activity patterns between weekdays and weekends?
 For this part the ```weekdays()``` function may be of some help here. We use the dataset with the filled-in missing values for this part.
 
 Below is the code needed and output to:
